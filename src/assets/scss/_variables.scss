@@ -1,0 +1,80 @@
+// colors
+$white: #fff;
+$c1: #130f40;
+$c2: #847aff;
+$c3: #ff9f43;
+$c4: rgb(53, 31, 152);
+$c5: #00d2d3;
+$c6: #0c2461;
+$c7: #1e3799;
+$shadow: #95afc0;
+$lightgray: #c8d6e5;
+
+$c180: rgba(18, 15, 62, .8);
+$c280: rgba(132,122,255, .80);
+$white80: rgba(255, 255, 255, 0.8);
+$white50: rgba(255, 255, 255, 0.5);
+$lightgray50: rgba(200,214,229, 0.5);
+$c480:rgb(53, 31, 152, 0.8);
+
+
+$box-shadow: 0 0 7px -2px $shadow;
+
+// fonts configs
+$roboto: 'Roboto', sans-serif;
+$heading: 3rem;
+$subheader: 2rem;
+$text: 1rem;
+
+body::-webkit-scrollbar-track {
+  border: 1px solid $c4;
+  background: linear-gradient(78deg, rgba(209,184,255,1) 0%, rgba(124,124,255,1) 100%);
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f5f5f5;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $c4;
+}
+
+a{
+  text-decoration: none;
+}
+
+// Mixins
+  @mixin common-dflex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @mixin common-dflex-start{
+    display: flex;
+    justify-content: start;
+  }
+
+  @mixin common-dflex-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @mixin common-dflex-space-between-no-align{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @mixin common-dflex-column{
+    display: flex;
+    flex-direction: column; 
+  }
+
+  @mixin common-dflex-column-space-between{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+  }
