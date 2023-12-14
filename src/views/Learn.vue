@@ -1,5 +1,6 @@
 <template>
     <div class="learn-container">
+        <ArbitaryNav />
         <div class="bg"></div>
         <div class="content">
             <Solidity />
@@ -12,12 +13,14 @@
 import Solidity from '../components/Learn/Solidity.vue';
 import BlockChain from '../components/Learn/BlockChain.vue';
 import Web3 from '../components/Learn/Web3.vue';
+import ArbitaryNav from '../components/Widgets/ArbitaryNav.vue';
 export default {
     name: "Learn",
     components: {
         Solidity,
         BlockChain,
-        Web3
+        Web3,
+        ArbitaryNav
     }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div class="line-chart">
-        <Chart type="line" height="350" :options="chartOptions" :series="series"></Chart>
+        <Chart type="line" height="350" :options="chartOptions" :series="lineChartData"></Chart>
     </div>
 </template>
 <script>
@@ -10,12 +10,13 @@ export default {
     components: {
         Chart: VueApexCharts
     },
+    props: {
+        dataPoints: Array,
+        cryptoId: String,
+        chartType: String
+    },
     data() {
         return {
-            series: [{
-                name: "Bitcoin",
-                data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
-            }],
             chartOptions: {
                 chart: {
                     height: 350,
@@ -31,7 +32,7 @@ export default {
                     curve: 'smooth'
                 },
                 title: {
-                    text: 'Bitcoin Price Chart',
+                    text: this.cryptoId.toUpperCase(),
                     align: 'left'
                 },
                 grid: {
@@ -40,12 +41,42 @@ export default {
                         opacity: 0.5
                     },
                 },
-                xaxis: {
-                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+                yaxis: {
+                    labels: {
+                        formatter: function (value) {
+                            if (value >= 1000000) {
+                                return (value / 1000000).toFixed(3) + 'M';
+                            } else if (value >= 10000) {
+                                return (value / 1000).toFixed(3) + 'K';
+                            } else {
+                                return value
+                            }
+                        }
+                    }
                 }
+
             }
         }
-    }
+    },
+    computed: {
+        lineChartData() {
+            return [{ name: "Price", data: this.$props.dataPoints }]
+        },
+        getChartType() {
+            return this.$props.chartType;
+        }
+    },
+    watch: {
+        cryptoId(newCryptoId) {
+            this.chartOptions = {
+                ...this.chartOptions,
+                title: {
+                    text: newCryptoId.toUpperCase(),
+                    align: 'left'
+                }
+            };
+        },
+    },
 }
 </script>
 <style lang="scss">

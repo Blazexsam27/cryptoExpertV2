@@ -4,11 +4,12 @@
         <div class="upper">
             <div class="left">
                 <!-- Icon -->
-                <v-icon name="co-bitcoin" />
+                <!-- <v-icon name="co-bitcoin" /> -->
+                <img :src="this.img" :alt="this.cryptoName">
             </div>
             <div class="right">
-                <div class="head">Bitcoin</div>
-                <div class="subhead">$35000</div>
+                <div class="head">{{ this.cryptoName }}</div>
+                <div class="subhead">$ {{ this.price.toFixed(5) }}</div>
             </div>
         </div>
         <hr class="vert-line" />
@@ -19,7 +20,13 @@
 </template>
 <script>
 export default {
-    name: "CryptoCard"
+    name: "CryptoCard",
+    props: {
+        img: String,
+        cryptoName: String,
+        price: String,
+        click: String
+    }
 }
 </script>
 <style lang="scss" scoped>
@@ -30,12 +37,22 @@ export default {
     border-radius: 10px;
     box-shadow: 0 0 7px -3px $c4;
     padding: 2px 1rem 0.6rem 1rem;
+    transition: .5s;
+    cursor: pointer;
 
     .upper {
         @include common-dflex-space-between-no-align;
         margin-top: 1rem;
 
         .left {
+            transition: .5s;
+            transform: rotate(0deg);
+
+            img {
+                width: 60px;
+                height: 60px;
+            }
+
             svg {
                 width: 50px;
                 height: 50px;
@@ -53,6 +70,7 @@ export default {
             .subhead {
                 font-size: 14px;
                 font-weight: 600;
+                text-align: end;
             }
         }
     }
@@ -86,6 +104,16 @@ export default {
                 transition: 0.6s;
                 fill: $c2;
             }
+        }
+    }
+
+    &:hover {
+        box-shadow: 0 0 10px 1px $c4;
+        transition: .5s;
+
+        .left {
+            transition: .5s;
+            transform: translateX(25px) scale(1.3) rotate(-90deg);
         }
     }
 }

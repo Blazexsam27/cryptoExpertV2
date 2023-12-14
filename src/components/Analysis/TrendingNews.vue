@@ -2,7 +2,7 @@
     <div class="trending-news">
         <div class="filter-section"></div>
         <div class="body" v-for="item of this.trendingNewsList">
-            <TrendingNewsCard :title="item.title" :body="item.body" :date="item.published_on" />
+            <TrendingNewsCard :title="item.title" :body="item.body" :date="item.published_on" :url="item.url" />
             <hr class="vert-line" />
         </div>
     </div>
@@ -23,7 +23,6 @@ export default {
     },
     mounted() {
         this.getTrendingNews();
-        console.log("c", this.trendingNewsList)
     },
     methods: {
         async getTrendingNews() {
@@ -31,7 +30,7 @@ export default {
                 const result = await newsService.getNewsFromCache();
                 let newsList = [];
                 for (let item of result) {
-                    newsList.push({ title: item.title, body: item.body, published_on: unixTimeStampToDate(item.published_on) })
+                    newsList.push({ title: item.title, body: item.body, url: item.url, published_on: unixTimeStampToDate(item.published_on) })
                 }
                 this.trendingNewsList = newsList.slice(0, 7);
             } catch (error) {

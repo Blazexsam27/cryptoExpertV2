@@ -22,6 +22,8 @@ a {
     font-size: $text;
     transition: .5s;
     height: 40px;
+    position: relative;
+    z-index: 25;
 
     &:hover {
         transition: .5s;

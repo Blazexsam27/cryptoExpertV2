@@ -16,4 +16,25 @@ const unixTimeStampToDate = (timestamp = 1701097664) => {
   return formattedDate;
 };
 
-export { unixTimeStampToDate };
+const calculate30FutureDates = () => {
+  let futureDates = [];
+  let future = new Date();
+
+  for (let i = 0; i < 30; i++) {
+    future.setDate(future.getDate() + i);
+    const formattedDate = formatDate(future);
+    futureDates.push(formattedDate);
+    future = new Date(future);
+  }
+};
+
+const formatDate = (date) => {
+  const options = {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  };
+  return date.toLocaleDateString("en-GB", options);
+};
+
+export { unixTimeStampToDate, calculate30FutureDates, formatDate };

@@ -1,10 +1,8 @@
 <template>
     <div class="card-container" data-aos="zoom-in-up" data-aos-duration="1500">
         <div class="logo"><v-icon name="ai-coursera-square" /></div>
-        <div class="heading">Heading</div>
-        <div class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis reprehenderit placeat blanditiis
-            consectetur, necessitatibus enim a optio veritatis. Doloremque explicabo itaque qui, ut possimus earum placeat
-            eius magnam illo unde iure temporibus.</div>
+        <div class="heading">{{ heading }}</div>
+        <div class="desc">{{ desc }}</div>
     </div>
 </template>
 <script>

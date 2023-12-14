@@ -1,6 +1,6 @@
 <template>
     <div class="heatmap-container">
-        <Chart type="heatmap" height="350" :options="chartOptions" :series="series"></Chart>
+        <Chart type="heatmap" height="350" :options="chartOptions" :series="this.heatMapData"></Chart>
     </div>
 </template>
 <script>
@@ -8,9 +8,12 @@ import VueApexCharts from "vue3-apexcharts";
 
 export default {
     name: "HeatMap",
+    props: {
+        heatMapRow1: Array,
+        heatMapRow2: Array
+    },
     components: {
         Chart: VueApexCharts
-
     },
     data() {
         return {
@@ -26,9 +29,6 @@ export default {
                     }, {
                         x: 'W3',
                         y: 13
-                    }, {
-                        x: 'W4',
-                        y: 32
                     }]
                 },
                 {
@@ -42,27 +42,9 @@ export default {
                     }, {
                         x: 'W3',
                         y: 43
-                    }, {
-                        x: 'W4',
-                        y: 43
                     }]
                 },
-                {
-                    name: "Series 2",
-                    data: [{
-                        x: 'W1',
-                        y: 43
-                    }, {
-                        x: 'W2',
-                        y: 43
-                    }, {
-                        x: 'W3',
-                        y: 43
-                    }, {
-                        x: 'W4',
-                        y: 43
-                    }]
-                }
+
             ],
             chartOptions: {
                 chart: {
@@ -77,6 +59,11 @@ export default {
                     text: 'HeatMap Chart (Single color)'
                 },
             },
+        }
+    },
+    computed: {
+        heatMapData() {
+            return [{ name: "", data: this.heatMapRow1 }, { name: "", data: this.heatMapRow2 }]
         }
     }
 }

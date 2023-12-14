@@ -2,10 +2,10 @@
     <div class="third-section-content">
         <div class="container">
             <div class="left">
-                <Card heading="Head1" logo="logo" desc="desc1" />
-                <Card heading="Head1" logo="logo" desc="desc1" />
-                <Card heading="Head1" logo="logo" desc="desc1" />
-                <Card heading="Head1" logo="logo" desc="desc1" />
+                <Card heading="Crypto Analysis Dashboard" logo="logo" :desc="desc1" />
+                <Card heading="Real-time Crypto News Feed" logo="logo" :desc="desc2" />
+                <Card heading="Bitcoin LSTM Model" logo="logo" :desc="desc3" />
+                <Card heading="Trending Cryptocurrencies" logo="logo" :desc="desc4" />
             </div>
             <div class="right" data-aos="flip-right" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1500">
                 <v-icon name="co-bitcoin" />
@@ -27,6 +27,14 @@ export default {
         onMounted(() => {
             AOS.init();
         });
+    },
+    data() {
+        return {
+            desc1: `Explore and visualize cryptocurrency trends with interactive graphs including treemaps, scatter charts, and line graphs. Get insights into selected cryptocurrencies' performance.`,
+            desc2: `Stay updated with the latest news and updates about the crypto world. Access relevant and up-to-date information impacting the market.`,
+            desc3: `Uncover predictive insights with our LSTM model trained specifically for Bitcoin. Gain valuable forecasts and trends based on historical data.`,
+            desc4: `Explore the hottest cryptocurrencies in the market. Stay informed about the most actively discussed and traded digital assets. Track the top-performing coins driving the current market trends.`
+        }
     }
 }
 </script>

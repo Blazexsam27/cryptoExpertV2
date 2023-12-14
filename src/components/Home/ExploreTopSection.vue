@@ -7,23 +7,31 @@
             </div>
             <div class="text" data-aos="fade-left" data-aos-duration="2000">
                 <div class="subheader">
-                    <span>Visual Analysis</span>
+                    <router-link to="/analysis">
+                        <span>
+                            Visual Analysis
+                        </span>
+                    </router-link>
                     <div class="side-strip"></div>
                 </div>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem velit cupiditate
-                    accusamus at. Adipisci asperiores sed repudiandae, iusto laudantium eos aliquid beatae? Impedit,
-                    repudiandae. Voluptatum repudiandae vel id excepturi porro eum qui.</div>
+                <div>Dive into the world of cryptocurrencies through intuitive visualizations. Our comprehensive suite of
+                    graphs—treemaps, scatter charts, and dynamic line graphs—empowers you to interpret and analyze market
+                    trends effortlessly. Visualize historical and real-time data, enabling informed decision-making and a
+                    deeper understanding of cryptocurrency performance over time.</div>
             </div>
         </section>
         <section class="lstm-section">
             <div class="text" data-aos="fade-right" data-aos-duration="2000">
                 <div class="subheader">
-                    <span>LSTM AI Model</span>
+                    <router-link to="/analysis">
+                        <span>LSTM AI Model</span>
+                    </router-link>
                     <div class="side-strip"></div>
                 </div>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem velit cupiditate
-                    accusamus at. Adipisci asperiores sed repudiandae, iusto laudantium eos aliquid beatae? Impedit,
-                    repudiandae. Voluptatum repudiandae vel id excepturi porro eum qui.</div>
+                <div>Gain valuable insights into Bitcoin's future trends with our LSTM (Long Short-Term Memory) model.
+                    Leveraging historical Bitcoin data, this sophisticated machine learning algorithm predicts potential
+                    price movements and market trends. Unlock actionable forecasts and informed analysis to navigate the
+                    dynamic landscape of cryptocurrency trading and investment.</div>
             </div>
             <div class="img" data-aos="flip-right" data-aos-anchor-placement="bottom-right" data-aos-duration="2500">
                 <img :src="this.barChartImg" alt="Graph Image">
@@ -35,12 +43,17 @@
             </div>
             <div class="text" data-aos="fade-left" data-aos-duration="2000">
                 <div class="subheader">
-                    <span>Learn Concepts</span>
+                    <router-link to="/learn">
+                        <span>Learn Concepts</span>
+                    </router-link>
                     <div class="side-strip"></div>
                 </div>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem velit cupiditate
-                    accusamus at. Adipisci asperiores sed repudiandae, iusto laudantium eos aliquid beatae? Impedit,
-                    repudiandae. Voluptatum repudiandae vel id excepturi porro eum qui.</div>
+                <div>Delve into the core of decentralized technologies with our comprehensive learning resources. Explore
+                    Solidity, the language behind smart contracts, empowering you to build decentralized applications on
+                    blockchain networks. Understand the fundamentals of blockchain technology, its architecture, and its
+                    disruptive potential across industries. Dive into Web3, the decentralized web, and discover how it
+                    revolutionizes data ownership, privacy, and internet interactions. Embark on a learning journey that
+                    unravels the future of decentralized innovation.</div>
             </div>
         </section>
     </div>
@@ -93,6 +106,14 @@ export default {
         clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
         position: relative;
 
+        transition: .7s;
+
+        &:hover {
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            transition: .7s;
+        }
+
         .side-strip {
             position: absolute;
             width: 20px;
@@ -101,7 +122,12 @@ export default {
             top: 0;
             right: 2rem;
             transform: skewX(-55deg);
+            transition: .7s;
 
+            &:hover {
+                transition: .7s;
+                transform: skewX(0deg);
+            }
         }
     }
 

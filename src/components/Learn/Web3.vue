@@ -77,7 +77,7 @@ a {
 
     .rotate-3d {
         transform-origin: center;
-        animation: rotateCar 6s infinite linear;
+        animation: rotateCar 20s infinite linear;
     }
 
     @keyframes rotateCar {

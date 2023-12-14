@@ -1,11 +1,11 @@
 <template>
     <div class="home-container">
         <section class="section-1">
-            <Navbar />
+            <Navbar @scroll-to-explore="handleScrollToExplore" />
             <CustomParticles backgroundColor="#130f40" />
             <MidSectionContent />
             <ThirdSectionContent />
-            <ExploreTopSection />
+            <ExploreTopSection ref="exploreSection" />
         </section>
     </div>
 </template>
@@ -23,7 +23,16 @@ export default {
         MidSectionContent,
         ThirdSectionContent,
         ExploreTopSection
+    },
+    methods: {
+        handleScrollToExplore() {
+            const exploreComponent = this.$refs.exploreSection;
+            if (exploreComponent) {
+                exploreComponent.$el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
     }
+
 }
 </script>
 <style lang="scss" scoped>

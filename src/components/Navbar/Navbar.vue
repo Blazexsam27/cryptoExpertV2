@@ -3,7 +3,7 @@
         <div class="navbar">
             <div class="left">Crypto Expert</div>
             <div class="center">
-                <div>Explore</div>
+                <div @click="scrollToExplore">Explore</div>
                 <router-link to="/news">
                     <div>News</div>
                 </router-link>
@@ -26,6 +26,11 @@ export default {
     name: "Navbar",
     components: {
         Button
+    },
+    methods: {
+        scrollToExplore() {
+            this.$emit('scroll-to-explore');
+        }
     }
 }
 </script>

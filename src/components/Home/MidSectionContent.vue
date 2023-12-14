@@ -3,7 +3,7 @@
         <div class="container" v-wave="{ color: 'blue', duration: 5, }">
             <div class="subcontainer">
                 <div>Analytics</div>
-                <div>Get to use 10+ types of visual statistics charts and graphs.</div>
+                <div>Get to use multiple visual statistics charts and graphs.</div>
             </div>
             <div class="subcontainer">
                 <div>LSTM</div>
