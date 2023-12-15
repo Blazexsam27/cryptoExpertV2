@@ -117,7 +117,7 @@ export default {
     mounted() {
         this.getCryptoLineChartData();
         this.getTrendingCryptos();
-        this.getTrendingCryptoCurrentVolume();
+        // this.getTrendingCryptoCurrentVolume();
         this.getGivenCryptoListData();
     },
     methods: {
@@ -146,33 +146,43 @@ export default {
             }
         },
 
-        async getTrendingCryptoCurrentVolume() {
-            try {
-                const rippleVolumeHeat = await geckoService.getCurrentDayVolume("ripple");
-                const bitcoinVolumeHeat = await geckoService.getCurrentDayVolume("bitcoin");
-                const ethVolumeHeat = await geckoService.getCurrentDayVolume('ethereum');
-                const maticVolumeHeat = await geckoService.getCurrentDayVolume("matic-network");
-                const polkadotVolumeHeat = await geckoService.getCurrentDayVolume("polkadot");
-                const solanaVolumeHeat = await geckoService.getCurrentDayVolume("solana");
+        // async getTrendingCryptoCurrentVolume() {
+        //     try {
+        //         const rippleVolumeHeat = await geckoService.getCurrentDayVolume("ripple");
+        //         const bitcoinVolumeHeat = await geckoService.getCurrentDayVolume("bitcoin");
+        //         const ethVolumeHeat = await geckoService.getCurrentDayVolume('ethereum');
+        //         const maticVolumeHeat = await geckoService.getCurrentDayVolume("matic-network");
+        //         const polkadotVolumeHeat = await geckoService.getCurrentDayVolume("polkadot");
+        //         const solanaVolumeHeat = await geckoService.getCurrentDayVolume("solana");
 
-                this.treeChartData = [
-                    { x: "Ripple", y: rippleVolumeHeat, },
-                    { x: "Bitcoin", y: bitcoinVolumeHeat, },
-                    { x: "Ethereum", y: ethVolumeHeat, },
-                    { x: "Polygon Matic", y: maticVolumeHeat, },
-                    { x: "Polkadot", y: polkadotVolumeHeat, },
-                    { x: "Solana", y: solanaVolumeHeat, },
+        //         this.treeChartData = [
+        //             { x: "Ripple", y: rippleVolumeHeat, },
+        //             { x: "Bitcoin", y: bitcoinVolumeHeat, },
+        //             { x: "Ethereum", y: ethVolumeHeat, },
+        //             { x: "Polygon Matic", y: maticVolumeHeat, },
+        //             { x: "Polkadot", y: polkadotVolumeHeat, },
+        //             { x: "Solana", y: solanaVolumeHeat, },
 
-                ]
-            } catch (error) {
-                console.error("Error", error);
+        //         ]
+        //     } catch (error) {
+        //         console.error("Error", error);
+        //     }
+        // },
+
+        async setupTreeMap(data) {
+            let reqData = [];
+            for (let item of data) {
+                reqData.push({ x: item.id.toUpperCase(), y: item.market_cap })
             }
+            this.treeChartData = reqData;
         },
 
         async getGivenCryptoListData() {
             try {
                 const result = await geckoService.getGivenCryptoListData(this.reqCryptoIds);
                 this.popularCryptos = result;
+
+                this.setupTreeMap(result);
             } catch (error) {
                 console.error("Error", error);
             }

@@ -74,6 +74,7 @@ class GeckoService {
       const response = await axios.get(
         `${this.baseUrl}/coins/markets?vs_currency=usd&ids=${cryptoIdList[0]}%2C%20${cryptoIdList[1]}%2C%20${cryptoIdList[2]}%2C%20${cryptoIdList[3]}%2C%20${cryptoIdList[4]}&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en`
       );
+      console.log("REQ DATA", response.data);
       return response.data;
     } catch (error) {
       throw new Error(error);
