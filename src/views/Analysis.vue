@@ -51,7 +51,7 @@
             </div>
             <div class="right">
                 <div class="container">
-                    <div class="subhead">Tree Map (24hr Volume in usd)</div>
+                    <div class="subhead">Tree Map (Market Capital in usd)</div>
                     <TreeChart :treeChartData="this.treeChartData" :d="213123131" />
                 </div>
             </div>
