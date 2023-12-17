@@ -29,5 +29,9 @@ export default {
         transform: scale(.98);
         opacity: .8;
     }
+
+    @media(max-width: 600px) {
+        padding: .5rem 1rem;
+    }
 }
 </style>

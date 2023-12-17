@@ -146,7 +146,7 @@ export default {
     .visual-analysis,
     .lstm-section,
     .learning-section {
-        width: 85%;
+        width: 80%;
         gap: 2rem;
         margin: 2rem 0;
         @include common-dflex-space-between;
@@ -165,5 +165,36 @@ export default {
     .lstm-section {}
 
     .learning-section {}
+
+    @media (max-width: 900px) {
+
+        .visual-analysis,
+        .lstm-section,
+        .learning-section {
+            overflow-x: hidden;
+
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .visual-analysis,
+        .lstm-section,
+        .learning-section {
+            flex-direction: column;
+
+            .img {
+                width: 80%;
+            }
+
+            .text {
+                width: 100%;
+            }
+        }
+
+        .lstm-section {
+            flex-flow: column-reverse;
+        }
+    }
 }
 </style>

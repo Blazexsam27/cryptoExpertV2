@@ -13,11 +13,12 @@ import {
   AiCourseraSquare,
   CoBitcoin,
   MdDatasaveroff,
+  HiSolidHome,
 } from "oh-vue-icons/icons";
 import ApexCharts from "apexcharts";
 import "aos/dist/aos.css";
 
-addIcons(AiCourseraSquare, CoBitcoin, MdDatasaveroff);
+addIcons(AiCourseraSquare, CoBitcoin, MdDatasaveroff, HiSolidHome);
 
 const app = createApp(App);
 app.config.globalProperties.$apexcharts = ApexCharts;

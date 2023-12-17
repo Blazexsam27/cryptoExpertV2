@@ -121,6 +121,7 @@ export default {
             span {
                 color: $c4;
             }
+
         }
 
         .keyword-summary {
@@ -131,6 +132,18 @@ export default {
 
             .container {
                 width: 70%;
+            }
+        }
+
+        @media (max-width: 1001px) {
+            .head {
+                font-size: 4rem;
+            }
+        }
+
+        @media(max-width:600px) {
+            .head {
+                font-size: 2.4rem;
             }
         }
     }

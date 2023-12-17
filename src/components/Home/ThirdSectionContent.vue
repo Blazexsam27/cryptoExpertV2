@@ -70,5 +70,9 @@ export default {
             }
         }
     }
+
+    @media (max-width: 600px) {
+        margin-top: 10rem;
+    }
 }
 </style>

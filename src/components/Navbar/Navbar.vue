@@ -1,7 +1,7 @@
 <template>
     <div class="navbar-container">
         <div class="navbar">
-            <div class="left">Crypto Expert</div>
+            <div class="left">{{ this.cryptoExpertLogo }}</div>
             <div class="center">
                 <div @click="scrollToExplore">Explore</div>
                 <router-link to="/news">
@@ -10,11 +10,14 @@
                 <router-link to="/learn">
                     <div>Learn</div>
                 </router-link>
-                <div>About</div>
+                <router-link to="/about">
+
+                    <div>About</div>
+                </router-link>
             </div>
             <div class="right">
                 <router-link to="/analysis">
-                    <Button text="Get Started" />
+                    <Button :text="this.getStartedButton" />
                 </router-link>
             </div>
         </div>
@@ -27,7 +30,23 @@ export default {
     components: {
         Button
     },
+    data() {
+        return {
+            getStartedButton: "Get Started",
+            cryptoExpertLogo: "Crypto Expert"
+        }
+    },
+    mounted() {
+        this.adjustNavbarWRTSize();
+    },
     methods: {
+        adjustNavbarWRTSize() {
+            console.log(window.innerWidth);
+            if (window.innerWidth < 600) {
+                this.getStartedButton = ">";
+                this.cryptoExpertLogo = "CE"
+            }
+        },
         scrollToExplore() {
             this.$emit('scroll-to-explore');
         }
@@ -80,5 +99,7 @@ export default {
         }
 
     }
+
+
 }
 </style>

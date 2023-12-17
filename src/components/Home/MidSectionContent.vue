@@ -76,6 +76,18 @@ export default {
         }
     }
 
+    @media (max-width: 600px) {
+        .container {
+            width: 85%;
+            flex-direction: column;
+            height: fit-content;
+
+            .subcontainer {
+                width: 100%;
+                height: 110px;
+            }
+        }
+    }
 
 }
 </style>
